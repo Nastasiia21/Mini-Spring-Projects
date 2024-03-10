@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <!-- Title of the HTML page -->
+    <title>Student Registration Form</title>
+</head>
+<body>
+
+<!-- Main heading for the registration form -->
+<h3>Student Registration Form</h3>
+
+<!-- Form setup with Thymeleaf to process student registration -->
+<!-- Specifies the action to which the form data will be submitted and the object that will hold the form data -->
+<form th:action="@{/processStudentForm}" th:object="${student}" method="POST">
+
+    <!-- Input field for the student's first name with two-way data binding -->
+    First name: <input type="text" th:field="*{firstName}" />
+    <br><br>
+
+    <!-- Input field for the student's last name with two-way data binding -->
+    Last name: <input type="text" th:field="*{lastName}" />
+    <br><br>
+
+    <!-- Dropdown for selecting the student's country -->
+    <!-- Iterates over available countries and creates an option for each -->
+    Country:
+    <select th:field="*{country}">
+        <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}" />
+    </select>
+    <br><br>
+
+    <!-- Radio buttons for selecting the favorite programming language -->
+    <!-- Iterates over available languages and creates a radio button for each -->
+    Favorite Programming Language:
+    <input type="radio" th:field="*{favoriteLanguage}"
+           th:each="tempLang : ${languages}"
+           th:value="${tempLang}"
+           th:text="${tempLang}" />
+    <br><br>
+
+    <!-- Checkboxes for selecting favorite operating systems -->
+    <!-- Iterates over available systems and creates a checkbox for each -->
+    Favorite Operating Systems:
+    <input type="checkbox" th:field="*{favoriteSystems}"
+           th:each="tempSystem : ${systems}"
+           th:value="${tempSystem}"
+           th:text="${tempSystem}" />
+    <br><br>
+
+    <!-- Submit button for the form -->
+    <input type="submit" value="Submit" />
+
+</form>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
