@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Registration Form</title>
+
+    <!-- Inline CSS to style error messages -->
+    <style>
+        .error {color:red}
+    </style>
+</head>
+
+<body>
+<!-- Instruction for the user indicating required fields -->
+<i>Fill out the form. Asterisk (*) means required.</i>
+<br><br>
+
+<!-- Form definition using Thymeleaf to process the form submission -->
+<form th:action="@{/processForm}" th:object="${customer}" method="POST">
+
+    <!-- Input field for the first name -->
+    First name: <input type="text" th:field="*{firstName}" />
+
+    <br><br>
+
+    <!-- Input field for the last name with an asterisk to denote it as required -->
+    Last name (*): <input type="text" th:field="*{lastName}" />
+
+    <!-- Display error message for last name if validation fails -->
+    <span th:if="${#fields.hasErrors('lastName')}"
+          th:errors="*{lastName}"
+          class="error"></span>
+
+    <br><br>
+
+    <!-- Input field for the number of free passes -->
+    Free passes: <input type="text" th:field="*{freePasses}" />
+
+    <!-- Display error message for free passes if validation fails -->
+    <span th:if="${#fields.hasErrors('freePasses')}"
+          th:errors="*{freePasses}"
+          class="error"></span>
+
+    <br><br>
+
+    <!-- Input field for the postal code -->
+    Postal Code: <input type="text" th:field="*{postalCode}" />
+
+    <!-- Display error message for postal code if validation fails -->
+    <span th:if="${#fields.hasErrors('postalCode')}"
+          th:errors="*{postalCode}"
+          class="error"></span>
+
+    <br><br>
+
+    <!-- Submit button for the form -->
+    <input type="submit" value="Submit" />
+
+</form>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
