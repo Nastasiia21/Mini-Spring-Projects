@@ -1,5 +1,6 @@
 package com.code.springdemo.mvc;
 
+import com.code.springdemo.mvc.validation.CourseCode;
 import jakarta.validation.constraints.*;
 
 // Defines a Customer class to store customer-related information
@@ -22,6 +23,10 @@ public class Customer {
     // Stores the postal code of the customer; it must match the specified pattern of 5 alphanumeric characters
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 digits/chars")
     private String postalCode;
+
+    // Stores the course code of the customer; with the help of custom validation
+    @CourseCode
+    private String courseCode;
 
     // Returns the first name of the customer
     public String getFirstName() {
@@ -61,5 +66,13 @@ public class Customer {
     // Sets the postal code of the customer, ensuring it matches the specified pattern
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
+    }
+
+    public String getCourseCode() {
+        return courseCode;
+    }
+
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
     }
 }
