@@ -1,1 +1,1 @@
-# Mini-Java-Spring-Boot-Projects
+# Mini-Java-Spring-MVC-Projects
